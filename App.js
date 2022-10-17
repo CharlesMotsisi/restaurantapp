@@ -4,7 +4,9 @@ import { colors } from './src/global/styles';
 import SiginInScreen from "./src/screens/authScreens/SignInScreen";
 import HomeScreen from './src/screens/HomeScreen';
 import RootClientTabs from './src/navigation/ClientTabs'
-//import RootNavigator from './src/navigation/RouteNavigator';
+import RootNavigator from './src/navigation/RouteNavigator';
+import BurgersMenu from './src/screens/BurgersMenu';
+
 
 export default function App(){
   return(
@@ -12,8 +14,8 @@ export default function App(){
       <StatusBar
         barStyle="light-content"
         backgroundColor= {colors.statusbar}/>
-        <HomeScreen/>
-        {/*<RootNavigator/>*/}
+         <BurgersMenu/>
+        {/* <RootNavigator/> */}
     </View>
   )
 }

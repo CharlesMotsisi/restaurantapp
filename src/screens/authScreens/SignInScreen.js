@@ -51,7 +51,7 @@ export default function SIgnInScreen({navigation}){
                 buttonStyle={parameters.styledButton}
                 titleStyle={parameters.buttonTitle}
                 style={{marginLeft:15}}
-                onPress={()=>{navigation.navigate('RootClientTabs')}}/> {/*Come back to the root*/}
+                onPress={()=>{navigation.navigate('DrawerNavigator')}}/> {/*Come back to the root*/}
             </View>
             <View style={{marginLeft:'38%', marginTop:20}}>
                 <Text style={{...styles.text1,textDecorationLine:"underline"}}>Forgot password?</Text>

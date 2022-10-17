@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {View,Text,StyleSheet,TextInput,TouchableOpacity,FlatList,Pressable,
-Image} from 'react-native'
+Image,Modal} from 'react-native'
 import {Icon} from 'react-native-elements'
 import HomeHeader from "../components/HomeHeader";
 import {colors,parameters} from '../global/styles';
@@ -13,6 +13,13 @@ const ClientTabs = createBottomTabNavigator();
 
 export default function HomeScreen({navigation}){
     const [indexCheck,setIndexCheck] = useState("0");
+    const [modalVisible,setModalVisible] = useState(false)
+
+    const menuPressed = ()=>{
+        setModalVisible(true);
+        console.log('Picture Pressed')
+    }
+
     return(
         <View style={styles.container}>
            <HomeHeader/>  
@@ -41,6 +48,7 @@ export default function HomeScreen({navigation}){
                                 <Image
                                 style={{height:60,width:60,borderRadius:60}}
                                 source={item.image}
+                                
                                 />
                                 <View>
                                     <Text style={indexCheck===item.id ? {...styles.smallCardSelected}:
@@ -118,7 +126,7 @@ export default function HomeScreen({navigation}){
                         keyExtractor={(item)=>item.id}
                         extraData={indexCheck}
                         renderItem={({item,index})=>(
-                            <View>
+                            <View onPress={menuPressed}>
                                 <Image
                                 style={{height:120,width:120,borderRadius:20,
                                 marginRight:20}}
@@ -132,7 +140,11 @@ export default function HomeScreen({navigation}){
                 Johannesburg 1632</Text>
             </View>
             <View style={styles.floatButton}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={()=>{
+                    navigation.navigate('RestaurantMapScreen')
+                }}
+                >
                     <Icon name="place"
                     type="material"
                     size={32}
@@ -141,6 +153,14 @@ export default function HomeScreen({navigation}){
                     <Text style={{color:colors.grey2}}>Map</Text>
                 </TouchableOpacity>
             </View>
+            {/* <Modal visible={modalVisible} animationType="slide">
+            <Icon name="arrow-left"
+                    type="material"
+                    size={32}
+                    color = {colors.buttons}
+                    onPress={()=>setModalVisible(false)}
+                    />
+            </Modal> */}
         </View>
     )
 }
