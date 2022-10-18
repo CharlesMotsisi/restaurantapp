@@ -8,6 +8,7 @@ import {filterData,filterData2,filterRestaurant} from '../global/data';
 import { color } from "react-native-elements/dist/helpers";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native';
+import Menu from "./Menu";
 
 const ClientTabs = createBottomTabNavigator();
 
@@ -16,8 +17,9 @@ export default function HomeScreen({navigation}){
     const [modalVisible,setModalVisible] = useState(false)
 
     const menuPressed = ()=>{
-        setModalVisible(true);
-        console.log('Picture Pressed')
+        // setModalVisible(true);
+        // console.log('Picture Pressed')
+        navigation.navigate('Menu');
     }
 
     return(
@@ -36,7 +38,7 @@ export default function HomeScreen({navigation}){
                 <FlatList 
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                    style={{marginTop:20}}
+                    style={{marginTop:20,marginLeft:60}}
                     data={filterData}
                     keyExtractor={(item)=>item.id}
                     extraData={indexCheck}
@@ -64,7 +66,7 @@ export default function HomeScreen({navigation}){
                 <FlatList 
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                    style={{marginTop:20}}
+                    style={{marginTop:20,marginLeft:60}}
                     data={filterData2}
                     keyExtractor={(item)=>item.id}
                     extraData={indexCheck}

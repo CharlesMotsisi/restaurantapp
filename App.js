@@ -5,7 +5,9 @@ import SiginInScreen from "./src/screens/authScreens/SignInScreen";
 import HomeScreen from './src/screens/HomeScreen';
 import RootClientTabs from './src/navigation/ClientTabs'
 import RootNavigator from './src/navigation/RouteNavigator';
-import BurgersMenu from './src/screens/BurgersMenu';
+import Menu from './src/screens/Menu';
+import Navigator from './src/navigation/authNavigators'
+import 'react-native-reanimated'
 
 
 export default function App(){
@@ -14,7 +16,7 @@ export default function App(){
       <StatusBar
         barStyle="light-content"
         backgroundColor= {colors.statusbar}/>
-         <BurgersMenu/>
+         <Navigator/>
         {/* <RootNavigator/> */}
     </View>
   )

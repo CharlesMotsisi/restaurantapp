@@ -1,47 +1,62 @@
 import React from  'react'
 import {createStackNavigator,TransitionPresets} from '@react-navigation/stack'
-import HomeScreen from '../screens/HomeScreen';
+import Home from '../screens/HomeScreen';
 import RootClientTabs from './ClientTabs';
 import RestaurantMapScreen from '../screens/restaurantMapScreen';
 import DrawerNavigator from './DrawerNavigator';
+import Menu from '../screens/Menu';
+import { createAppContainer } from 'react-navigation';
 
-const Auth = createStackNavigator();
+const screens ={
+    Home:{
+        screen:Home
+    },
+    Menu:{
+        screen:Menu
+    },
 
-export default function AuthStack(){
-    return(
-        <Auth.Navigator>
-            {/* <Auth.Screen
-            name=""
-            component=""
-            options={{
-                headerShown:false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}/>
 
-        <Auth.Screen
-            name=""
-            component=""
-            options={{
-                headerShown:false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}/>
+ }
 
-        <Auth.Screen
-            name="DrawerNavigator"
-            component={DrawerNavigator}
-            options={{
-                headerShown:false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}/>
+ const Auth = createStackNavigator(screens);
 
-        <Auth.Screen
-            name="RestaurantMapScreen"
-            component={RestaurantMapScreen}
-            options={{
-                headerShown:false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}/> */}
-        </Auth.Navigator>
+ export default createAppContainer(Auth);
+
+// export default function AuthStack(){
+//     return(
+//         <Auth.Navigator>
+//             {/* <Auth.Screen
+//             name=""
+//             component=""
+//             options={{
+//                 headerShown:false,
+//                 ...TransitionPresets.RevealFromBottomAndroid
+//             }}/>
+
+//         <Auth.Screen
+//             name=""
+//             component=""
+//             options={{
+//                 headerShown:false,
+//                 ...TransitionPresets.RevealFromBottomAndroid
+//             }}/>
+
+//         <Auth.Screen
+//             name="DrawerNavigator"
+//             component={DrawerNavigator}
+//             options={{
+//                 headerShown:false,
+//                 ...TransitionPresets.RevealFromBottomAndroid
+//             }}/>
+
+//         <Auth.Screen
+//             name="RestaurantMapScreen"
+//             component={RestaurantMapScreen}
+//             options={{
+//                 headerShown:false,
+//                 ...TransitionPresets.RevealFromBottomAndroid
+//             }}/> */}
+//         </Auth.Navigator>
         
-    )
-}
+//     )
+// }
